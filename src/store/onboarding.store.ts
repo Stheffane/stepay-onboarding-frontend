@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import type { DadosModel } from "../shared/models";
-import { createEncryptedStorage } from "../utils/encrypted-storage";
+import { createEncryptedStorage } from "../shared/utils/encrypted-storage";
 
 type OnboardingState = {
   model?: DadosModel;
