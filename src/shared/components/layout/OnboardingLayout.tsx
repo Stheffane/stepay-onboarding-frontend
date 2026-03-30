@@ -1,18 +1,12 @@
-import type { ReactNode } from "react";
 import { Container } from "@mui/material";
-import { OnboardingFormProvider } from "../../providers/onboarding-form.provider";
+import { Outlet } from "react-router-dom";
 
-
-type Props = {
-  children: ReactNode;
-};
-
-export function OnboardingLayout({ children }: Props) {
+export function OnboardingLayout() {
   return (
-    <OnboardingFormProvider>
+    <>
       <Container maxWidth="sm">
-        {children}
+        <Outlet />
       </Container>
-    </OnboardingFormProvider>
+    </>
   );
 }

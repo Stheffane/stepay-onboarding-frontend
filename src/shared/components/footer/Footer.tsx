@@ -28,6 +28,7 @@ type FooterProps = {
   rightButtonOnClick?: () => void;
 
   rightButtonDisabled?: boolean;
+  rightButtonForm?: string;
 };
 
 export default function Footer({
@@ -37,7 +38,8 @@ export default function Footer({
   rightButtonLink,
   leftButtonOnClick,
   rightButtonOnClick,
-  rightButtonDisabled = false
+  rightButtonDisabled = false,
+  rightButtonForm
 }: FooterProps) {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -64,8 +66,10 @@ export default function Footer({
               variant="contained"
               size="large"
               disabled={rightButtonDisabled}
+              form={rightButtonForm || undefined}
               onClick={rightButtonOnClick}
               href={rightButtonLink}
+              type={rightButtonOnClick ? "button" : "submit"}
             >
               {renderRightText(rightButton)}
               {renderRightIcon(rightButton)}

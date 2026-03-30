@@ -12,6 +12,18 @@ export const OnboardingStep = {
   EXPIRED: "EXPIRED",
 } as const;
 
+export const STEP_INDEX: Record<OnboardingStep, number> = {
+  START: 0,
+  SIMULATION: 1,
+  PERSONAL_DATA: 2,
+  DOCUMENTS: 3,
+  CONFIRMATION: 4,
+  SUCCESS: 5,
+  ERROR: 6,
+  CANCELLED: 7,
+  EXPIRED: 8,
+};
+
 export type OnboardingStep = (typeof OnboardingStep)[keyof typeof OnboardingStep];
 
 const FLOW: OnboardingStep[] = [
@@ -22,7 +34,7 @@ const FLOW: OnboardingStep[] = [
   OnboardingStep.CONFIRMATION,
 ];
 
-type OnboardingFlowState = {
+export type OnboardingFlowState = {
   step: OnboardingStep;
 
   next: () => void;
