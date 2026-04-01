@@ -17,7 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 
 import { whatsappSchema, type WhatsappFormData } from "./schema";
-import { StyledInput } from "../../components/inputs/inputBankAccount/styles";
+import { StyledInput } from "../../inputs/inputBankAccount/styles";
 
 type Props = {
   open: boolean;
