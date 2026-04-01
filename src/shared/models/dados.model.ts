@@ -1,16 +1,15 @@
+import type { DadosPessoaisForm, DetalhesPedidoForm } from "../../features/onboarding/primeira-etapa/schemas";
+
 export interface DadosModel {
   id?: string;
-
-  cpf?: string;
-  nome?: string;
-  email?: string;
-  telefone?: string;
-
-  valorSolicitado?: number;
-  prazo?: number;
-
-  empresa?: string;
-  cnpj?: string;
-
   etapaAtual?: number;
+
+  // campos de dados pessoais
+  dadosPessoais?: DadosPessoaisForm;
+
+  // campos de detalhes do pedido
+  detalhesPedido?: DetalhesPedidoForm;
+
+  // campos de simulação
+  simulatedParcelas?: number;
 }
