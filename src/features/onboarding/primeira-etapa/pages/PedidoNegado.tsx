@@ -1,12 +1,38 @@
-import React from 'react';
+import { Container, Typography, Box } from "@mui/material";
+import Footer from "../../../../shared/components/footer/Footer";
 
-const PedidoNegado: React.FC = () => {
+export default function PedidoNegadoPage() {
   return (
-    <div>
-      <h1>Pedido Negado</h1>
-      {/* Conteúdo da página */}
-    </div>
-  );
-};
+    <Container maxWidth="sm">
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        textAlign="center"
+        pt={6}
+      >
 
-export default PedidoNegado;
+        <Typography variant="h4" mb={2}>
+          Que pena! 😟
+        </Typography>
+
+        <Typography variant="h6" color="text.secondary">
+          Por enquanto não será possível atender a solicitação de crédito para
+          sua empresa. Mas fique tranquilo, vamos informar com mais detalhes o
+          motivo pelo qual seu pedido não foi atendido.
+        </Typography>
+
+        <Typography variant="h6" color="text.secondary" mt={2}>
+          Agradecemos o seu interesse nos produtos financeiros da Stepay.{" "}
+          <br />
+          Até mais!
+        </Typography>
+      </Box>
+
+      <Footer
+        rightButton="finalizar"
+        rightButtonLink="https://github.com/Stheffane/stepay-onboarding-frontend"
+      />
+    </Container>
+  );
+}
