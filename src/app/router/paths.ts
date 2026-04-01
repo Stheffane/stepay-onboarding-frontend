@@ -13,44 +13,44 @@
 export const PATHS = {
 
   PRIMEIRA_ETAPA: {
-    DADOS_PESSOAIS: "/primeira-etapa/dados-pessoais",
-    DETALHES_PEDIDO: "/primeira-etapa/detalhes-pedido",
-    SIMULACAO: "/primeira-etapa/simulacao",
-    CONSULTA_MOTOR: "/primeira-etapa/consulta-motor",
-    ANALISE_MANUAL: "/primeira-etapa/analise-manual",
-    CONFIRMACAO: "/primeira-etapa/confirmacao",
-    PEDIDO_NEGADO: "/primeira-etapa/pedido-negado",
-    SOLICITAR_CPF: "/primeira-etapa/solicitar-cpf"
+    DADOS_PESSOAIS: "/dados-pessoais",
+    DETALHES_PEDIDO: "/detalhes-pedido",
+    SIMULACAO: "/simulacao",
+    CONSULTA_MOTOR: "/consulta-motor",
+    ANALISE_MANUAL: "/analise-manual",
+    CONFIRMACAO: "/confirmacao",
+    PEDIDO_NEGADO: "/pedido-negado",
+    SOLICITAR_CPF: "/solicitar-cpf"
   },
 
   SEGUNDA_ETAPA: {
-    IDENTIFICACAO: "/segunda-etapa/identificacao",
-    IDENTIFICACAO_SOCIOS: "/segunda-etapa/identificacao-mais-socios",
-    FLUXO_SOCIO: "/segunda-etapa/fluxo-socio",
-    CONCLUSAO_NAO_SOCIO: "/segunda-etapa/conclusao-nao-socio",
+    IDENTIFICACAO: "/identificacao",
+    IDENTIFICACAO_SOCIOS: "/identificacao-mais-socios",
+    FLUXO_SOCIO: "/fluxo-socio",
+    CONCLUSAO_NAO_SOCIO: "/conclusao-nao-socio",
     PROXIMOS_PASSOS: {
-      FORA_QUADRO: "/segunda-etapa/proximos-passos/fora-quadro",
-      SOCIO: "/segunda-etapa/proximos-passos/socio",
-      SOCIOS: "/segunda-etapa/proximos-passos/socios"
+      FORA_QUADRO: "/proximos-passos/fora-quadro",
+      SOCIO: "/proximos-passos/socio",
+      SOCIOS: "/proximos-passos/socios"
     }
   },
 
   TERCEIRA_ETAPA: {
-    DOCUMENTOS: "/terceira-etapa/documentos",
-    CRIAR_SENHA: "/terceira-etapa/criar-senha",
-    SOLICITACAO_CONCLUIDA: "/terceira-etapa/solicitacao-concluida",
-    DESISTENCIA_PROPOSTA: "/terceira-etapa/desistencia-proposta",
-    DESISTENCIA_SOCIO: "/terceira-etapa/desistencia-socio"
+    DOCUMENTOS: "/documentos",
+    CRIAR_SENHA: "/criar-senha",
+    SOLICITACAO_CONCLUIDA: "/solicitacao-concluida",
+    DESISTENCIA_PROPOSTA: "/desistencia-proposta",
+    DESISTENCIA_SOCIO: "/desistencia-socio"
   },
 
   QUARTA_ETAPA: {
-    CONFIRMACAO: "/quarta-etapa/confirmacao",
-    CONCLUSAO: "/quarta-etapa/conclusao-solicitacao",
-    VISUALIZACAO: "/quarta-etapa/visualizacao-solicitacao",
-    SOLICITACAO_CONCLUIDA: "/quarta-etapa/solicitacao-concluida",
-    PEDIDO_CANCELADO: "/quarta-etapa/pedido-cancelado",
-    PEDIDO_EXPIRADO: "/quarta-etapa/pedido-expirado",
-    DESISTENCIA: "/quarta-etapa/desistencia-solicitacao"
+    CONFIRMACAO: "/confirmacao",
+    CONCLUSAO: "/conclusao-solicitacao",
+    VISUALIZACAO: "/visualizacao-solicitacao",
+    SOLICITACAO_CONCLUIDA: "/solicitacao-concluida",
+    PEDIDO_CANCELADO: "/pedido-cancelado",
+    PEDIDO_EXPIRADO: "/pedido-expirado",
+    DESISTENCIA: "/desistencia-solicitacao"
   },
 
   SISTEMA: {

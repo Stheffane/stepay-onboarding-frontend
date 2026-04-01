@@ -30,5 +30,9 @@ export const quartaEtapaRoutes: RouteObject[] = [
   {
     path: PATHS.QUARTA_ETAPA.SOLICITACAO_CONCLUIDA,
     lazy: () => import("../../../features/onboarding/quarta-etapa/pages/SolicitacaoConcluida").then(m => ({ Component: m.default }))
+  },
+  {
+    path: PATHS.QUARTA_ETAPA.DESISTENCIA,
+    lazy: () => import("../../../features/onboarding/quarta-etapa/pages/DesistenciaProposta").then(m => ({ Component: m.default }))
   }
 ]
