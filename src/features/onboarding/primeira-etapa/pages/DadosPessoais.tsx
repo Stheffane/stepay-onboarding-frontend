@@ -1,63 +1,52 @@
-import {
-  Container,
-  Typography,
-  TextField,
-  Grid
-} from "@mui/material";
-
-import { useEffect } from "react";
+import { Container, Typography, Grid, TextField } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PatternFormat } from "react-number-format";
+import { useNavigate } from "react-router-dom";
 
-import { useOnboardingFlowStore, useOnboardingStore } from "../../../../store";
-
+import { useOnboardingStore, useOnboardingFlowStore } from "../../../../store";
 import {
   personalDataSchema,
-  type PersonalDataForm
+  type DadosPessoaisForm,
 } from "../schemas/dadosPessoais.schema";
-
 import Footer from "../../../../shared/components/footer/Footer";
-import { useNavigate } from "react-router-dom";
 import { PATHS } from "../../../../app/router/paths";
+import { useHydrateForm } from "../../../../shared/hooks";
 
 export default function DadosPessoaisPage() {
-  const { setModel, model } = useOnboardingStore();
-  const next = useOnboardingFlowStore((s) => s.next);
   const navigate = useNavigate();
+  const { model, setModel } = useOnboardingStore();
+  const next = useOnboardingFlowStore((s) => s.next);
 
   const {
     control,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<PersonalDataForm>({
+  } = useForm<DadosPessoaisForm>({
     resolver: zodResolver(personalDataSchema),
-    defaultValues: model as PersonalDataForm,
+    defaultValues: {
+      userName: "",
+      userCellphone: "",
+      userEmail: "",
+      userNumberDoc: "",
+    },
   });
 
-  // hidrata quando voltar de etapa
-  useEffect(() => {
-    if (model) {
-      reset(model as PersonalDataForm);
-    }
-  }, [model, reset]);
+  useHydrateForm(model?.dadosPessoais, reset);
 
-  const onSubmit = (values: PersonalDataForm) => {
-    const cleaned = {
-      ...values,
-      userCellphone: values.userCellphone?.replace(/\D/g, ""),
-      userNumberDoc: values.userNumberDoc?.replace(/\D/g, ""),
-    };
-
+  const onSubmit = (values: DadosPessoaisForm) => {
     setModel({
       ...(model ?? {}),
-      ...cleaned,
+      dadosPessoais: {
+        ...values,
+        userCellphone: values.userCellphone.replace(/\D/g, ""),
+        userNumberDoc: values.userNumberDoc.replace(/\D/g, ""),
+      },
     });
 
-
-    next(); // estado do fluxo -zustand
-    navigate(PATHS.PRIMEIRA_ETAPA.DETALHES_PEDIDO); // rota
+    next();
+    navigate(PATHS.PRIMEIRA_ETAPA.DETALHES_PEDIDO);
   };
 
   return (
@@ -73,7 +62,6 @@ export default function DadosPessoaisPage() {
       <form id="dados-pessoais-form" onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={3}>
 
-          {/* Nome */}
           <Grid size={12}>
             <Controller
               name="userName"
@@ -90,7 +78,6 @@ export default function DadosPessoaisPage() {
             />
           </Grid>
 
-          {/* Telefone */}
           <Grid size={12}>
             <Controller
               name="userCellphone"
@@ -98,9 +85,7 @@ export default function DadosPessoaisPage() {
               render={({ field }) => (
                 <PatternFormat
                   value={field.value || ""}
-                  onValueChange={(values) => {
-                    field.onChange(values.value);
-                  }}
+                  onValueChange={(values) => field.onChange(values.value)}
                   format="(##) #####-####"
                   customInput={TextField}
                   fullWidth
@@ -112,7 +97,6 @@ export default function DadosPessoaisPage() {
             />
           </Grid>
 
-          {/* Email */}
           <Grid size={12}>
             <Controller
               name="userEmail"
@@ -129,7 +113,6 @@ export default function DadosPessoaisPage() {
             />
           </Grid>
 
-          {/* CPF */}
           <Grid size={12}>
             <Controller
               name="userNumberDoc"
@@ -137,9 +120,7 @@ export default function DadosPessoaisPage() {
               render={({ field }) => (
                 <PatternFormat
                   value={field.value || ""}
-                  onValueChange={(values) => {
-                    field.onChange(values.value);
-                  }}
+                  onValueChange={(values) => field.onChange(values.value)}
                   format="###.###.###-##"
                   customInput={TextField}
                   fullWidth
@@ -150,10 +131,11 @@ export default function DadosPessoaisPage() {
               )}
             />
           </Grid>
+
         </Grid>
       </form>
 
-      <Footer rightButton={"avancar"} rightButtonForm="dados-pessoais-form" />
+      <Footer rightButton="avancar" rightButtonForm="dados-pessoais-form" />
     </Container>
   );
 }
