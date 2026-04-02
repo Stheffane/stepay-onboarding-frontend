@@ -1,12 +1,16 @@
-import React from 'react';
+import { useNavigate } from "react-router-dom";
+import { PATHS } from "../../../../app/router/paths";
+import { IdentificacaoBase } from "../components/IdentificationOfMorePartners";
 
-const Identificacao: React.FC = () => {
+export default function IdentificacaoPage() {
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <h1>Identificação</h1>
-      {/* Conteúdo da página */}
-    </div>
+    <IdentificacaoBase
+      title="Oops! Identificamos que você não faz parte do quadro societário!"
+      subtitle="Envie o link para seu sócio continuar o processo. Assim que recebermos, você será avisado para continuar."
+      onBack={() => navigate(PATHS.SEGUNDA_ETAPA.PROXIMOS_PASSOS.FORA_QUADRO)}
+      onNext={() => navigate(PATHS.SEGUNDA_ETAPA.CONCLUSAO_NAO_SOCIO)}
+    />
   );
-};
-
-export default Identificacao;
+}
