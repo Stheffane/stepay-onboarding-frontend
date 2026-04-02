@@ -21,12 +21,12 @@ export function useMockCpfValidation() {
   const [loading, setLoading] = useState(false);
 
   const validate = useCallback(
-    async (cpf: string) => {
+    async (cpf: string, scenarioFixed?: CpfScenario) => {
       setLoading(true);
 
       await new Promise((resolve) => setTimeout(resolve, 1200)); // simula latência de API
 
-      const scenario = getMockScenario(cpf);
+      const scenario = scenarioFixed || getMockScenario(cpf);
 
       setModel({
         ...(model ?? {}),
