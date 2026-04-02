@@ -1,2 +1,5 @@
 export * from "./dadosPessoais.schema"
 export * from "./detalhesPedido.schema"
+export * from "./simulacao.schema"
+export * from "./solicitarCpf.schema"
+export * from "./confirmacao.schema"
