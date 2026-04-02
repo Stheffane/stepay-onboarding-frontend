@@ -1,6 +1,9 @@
-import type { DadosPessoaisForm, DetalhesPedidoForm } from "../../features/onboarding/primeira-etapa/schemas";
-import type { SimulacaoForm } from "../../features/onboarding/primeira-etapa/schemas/simulacao.schema";
-
+import type {
+  DadosPessoaisForm,
+  DetalhesPedidoForm,
+  SimulacaoForm,
+  ConfirmacaoForm
+} from "../../features/onboarding/primeira-etapa/schemas";
 export interface DadosModel {
   id?: string;
   etapaAtual?: number;
@@ -8,4 +11,5 @@ export interface DadosModel {
   dadosPessoais?: DadosPessoaisForm;
   detalhesPedido?: DetalhesPedidoForm;
   simulacao?: SimulacaoForm;
+  confirmacao?: ConfirmacaoForm;
 }
