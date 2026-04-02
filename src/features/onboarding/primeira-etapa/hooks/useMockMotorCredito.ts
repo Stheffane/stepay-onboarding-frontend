@@ -30,7 +30,7 @@ export function useMockMotorCredito() {
 
       switch (desfecho) {
         case "aprovado":
-          navigate(PATHS.PRIMEIRA_ETAPA.CONFIRMACAO);
+          navigate(PATHS.PRIMEIRA_ETAPA.SIMULACAO);
           break;
         case "analise-manual":
           navigate(PATHS.PRIMEIRA_ETAPA.ANALISE_MANUAL);
