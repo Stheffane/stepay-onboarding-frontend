@@ -6,18 +6,16 @@ import {
   Button,
   Typography,
   Box,
+  TextField,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
-import InputMask from "react-input-mask";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-import { useNavigate } from "react-router-dom";
+import { PatternFormat } from "react-number-format";
 
 import { whatsappSchema, type WhatsappFormData } from "./schema";
-import { StyledInput } from "../../inputs/inputBankAccount/styles";
 
 type Props = {
   open: boolean;
@@ -25,28 +23,19 @@ type Props = {
   message: () => string;
 };
 
-const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-
 export function ModalWhatsapp({ open, onClose, message }: Props) {
-  const navigate = useNavigate();
 
-  const { control, handleSubmit, reset } = useForm<WhatsappFormData>({
+  const { control, handleSubmit, reset, formState: { errors } } = useForm<WhatsappFormData>({
     resolver: zodResolver(whatsappSchema),
   });
 
   const handleSend = async (data: WhatsappFormData) => {
     const number = data.phone.replace(/\D/g, "");
 
-    if (isSafari) {
-      const url = `https://wa.me/55${number}?text=${encodeURIComponent(message())}`;
-      window.open(url, "_blank");
-      reset();
-      return;
-    }
-
+    const url = `https://wa.me/55${number}?text=${encodeURIComponent(message())}`;
+    window.open(url, "_blank");
     reset();
-    navigate("/erro");
-
+    return;
   };
 
   return (
@@ -72,18 +61,16 @@ export function ModalWhatsapp({ open, onClose, message }: Props) {
             name="phone"
             control={control}
             render={({ field }) => (
-              <InputMask
-                mask="(99) 99999-9999"
+              <PatternFormat
                 value={field.value || ""}
-                onChange={field.onChange}
-              >
-                {(inputProps) => (
-                  <StyledInput
-                    {...inputProps}
-                    placeholder="(00) 00000-0000"
-                  />
-                )}
-              </InputMask>
+                onValueChange={(values) => field.onChange(values.value)}
+                format="(##) #####-####"
+                customInput={TextField}
+                fullWidth
+                label="Celular"
+                error={!!errors.phone}
+                helperText={errors.phone?.message}
+              />
             )}
           />
 
