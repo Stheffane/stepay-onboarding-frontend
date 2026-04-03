@@ -12,4 +12,6 @@ export interface DadosModel {
   detalhesPedido?: DetalhesPedidoForm;
   simulacao?: SimulacaoForm;
   confirmacao?: ConfirmacaoForm;
+
+  whatsappEnviado?: boolean;
 }
