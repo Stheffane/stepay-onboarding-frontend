@@ -24,9 +24,13 @@ type Props = {
 
 export function IdentificacaoBase({ title, subtitle, onBack, onNext }: Props) {
   const { link, copyLink } = useShareLink();
-  const { model } = useOnboardingStore();
+  const { model, setModel } = useOnboardingStore();
   const [whatsappModalOpen, setWhatsappModalOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+
+  const marcarWhatsappEnviado = () => {
+    setModel({ ...(model ?? {}), whatsappEnviado: true });
+  };
 
   const nome = model?.dadosPessoais?.userName ?? "";
   const cnpj = model?.detalhesPedido?.userCNPJ ?? "";
@@ -43,6 +47,8 @@ export function IdentificacaoBase({ title, subtitle, onBack, onNext }: Props) {
     copyLink();
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+
+    marcarWhatsappEnviado();
   };
 
   return (
@@ -68,7 +74,7 @@ export function IdentificacaoBase({ title, subtitle, onBack, onNext }: Props) {
                 <Button
                   variant="outlined"
                   startIcon={<WhatsAppIcon />}
-                  onClick={() => setWhatsappModalOpen(true)}
+                  onClick={() => { marcarWhatsappEnviado(); setWhatsappModalOpen(true); }}
                   sx={{ flex: 1, minWidth: 140, py: 2 }}
                 >
                   WhatsApp
