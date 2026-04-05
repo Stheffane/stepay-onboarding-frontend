@@ -7,6 +7,7 @@ import { primeiraEtapaRoutes } from "./routes/primeiraEtapa.routes"
 import { segundaEtapaRoutes } from "./routes/segundaEtapa.routes"
 import { terceiraEtapaRoutes } from "./routes/terceiraEtapa.routes"
 import { quartaEtapaRoutes } from "./routes/quartaEtapa.routes"
+import { ErrorPage } from './../pages/error';
 
 export const router = createBrowserRouter([
   {
@@ -22,5 +23,10 @@ export const router = createBrowserRouter([
   {
     path: "*",
     element: <NotFoundPage />
+  },
+
+  {
+    path: "/error",
+    element: <ErrorPage />
   }
 ])

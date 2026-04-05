@@ -13,7 +13,7 @@
 export const PATHS = {
 
   PRIMEIRA_ETAPA: {
-    DADOS_PESSOAIS: "/dados-pessoais",
+    DADOS_PESSOAIS: "/",
     DETALHES_PEDIDO: "/detalhes-pedido",
     SIMULACAO: "/simulacao",
     CONSULTA_MOTOR: "/consulta-motor",
