@@ -35,5 +35,9 @@ export const primeiraEtapaRoutes: RouteObject[] = [
   {
     path: PATHS.PRIMEIRA_ETAPA.PEDIDO_NEGADO,
     lazy: () => import("../../../features/onboarding/primeira-etapa/pages/PedidoNegado").then(m => ({ Component: m.default }))
+  },
+  {
+    path: PATHS.PRIMEIRA_ETAPA.SOLICITAR_CPF,
+    lazy: () => import("../../../features/onboarding/primeira-etapa/pages/SolicitarCpf").then(m => ({ Component: m.default }))
   }
 ]
