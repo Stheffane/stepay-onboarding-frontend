@@ -1,6 +1,8 @@
 import { ThemeProvider } from "styled-components";
+import { ThemeProvider as MuiThemeProvider, CssBaseline } from "@mui/material";
 import { useEffect, type ReactNode } from "react";
 import { themeResolver } from "./themeResolver";
+import { createMuiTheme } from "../styles/theme";
 import type { AppTheme } from "./theme.types";
 
 type Props = {
@@ -9,6 +11,7 @@ type Props = {
 
 export function AppThemeProvider({ children }: Props) {
   const theme = themeResolver();
+  const muiTheme = createMuiTheme(theme);
   const metaTheme = document.querySelector("meta[name='theme-color']");
 
   if (metaTheme) {
@@ -19,7 +22,12 @@ export function AppThemeProvider({ children }: Props) {
     applyThemeSideEffects(theme);
   }, [theme]);
 
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return (
+    <MuiThemeProvider theme={muiTheme}>
+      <CssBaseline />
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </MuiThemeProvider>
+  );
 }
 
 function applyThemeSideEffects(theme: AppTheme) {

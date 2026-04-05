@@ -99,9 +99,9 @@ function renderLeftText(type: FooterProps["leftButton"]) {
 function renderLeftIcon(type: FooterProps["leftButton"]) {
   switch (type) {
     case "voltar":
-      return <ArrowBackIcon style={iconLeftArrowStyle} />;
+      return <ArrowBackIcon style={iconLeftArrowStyle} color="primary" />;
     default:
-      return <CloseIcon style={iconCloseStyle} />;
+      return <CloseIcon style={iconCloseStyle} color="primary" />;
   }
 }
 
@@ -122,9 +122,9 @@ function renderRightIcon(type: FooterProps["rightButton"]) {
   switch (type) {
     case "aceitar":
     case "finalizar":
-      return <CheckIcon style={iconRightStyle} />;
+      return <CheckIcon style={iconRightStyle} color="primary.contrastText" />;
     default:
-      return <ArrowForwardIcon style={iconRightStyle} />;
+      return <ArrowForwardIcon style={iconRightStyle} color="primary.contrastText" />;
   }
 }
 

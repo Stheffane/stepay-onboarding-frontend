@@ -10,16 +10,16 @@ export const themes = {
     hideSubtitle: false,
     faviconUrl: "/favicon.ico",
 
-    menuColor: "#003349",
+    menuColor: "#1B7AA6",
 
-    primaryColor: "#A42355",
-    secondaryColor: "#003349",
-    tertiaryColor: "#003349",
+    primaryColor: "#fc8c38",
+    secondaryColor: "#1B7AA6",
+    tertiaryColor: "#1B7AA6",
 
     formItemFontSize: 16,
 
-    fontSizeButtonColor: "#A42355",
-    fontSizeButtonFontColor: "#FFFFFF",
+    buttonColor: "#fc8c38",
+    buttonFontColor: "#FFFFFF",
   },
 
   clientA: {
@@ -31,16 +31,16 @@ export const themes = {
     logoUrl: "/images/whitelabel-logos/comgas.svg",
     faviconUrl: "https://www.comgas.com.br/wp-content/themes/comgas/favicon.ico",
 
-    menuColor: "#1B7AA6",
+    menuColor: "#000000",
 
-    primaryColor: "#1B7AA6",
-    secondaryColor: "#7FD35F",
-    tertiaryColor: "#7FD35F",
+    primaryColor: "#830AD1",
+    secondaryColor: "#85ff9c",
+    tertiaryColor: "#00ffff",
 
     formItemFontSize: 16,
 
-    fontSizeButtonColor: "#79D369",
-    fontSizeButtonFontColor: "#FFFFFF",
+    buttonColor: "#830AD1",
+    buttonFontColor: "#FFFFFF",
   },
 
   clientB: {
@@ -53,16 +53,16 @@ export const themes = {
     faviconUrl:
       "https://marketup.com/wp-content/uploads/2020/12/cropped-mup-icon_Prancheta-1-32x32.png",
 
-    menuColor: "#000000",
+     menuColor: "#082565",
 
-    primaryColor: "#000000",
-    secondaryColor: "#8CC63F",
-    tertiaryColor: "#8CC63F",
+    primaryColor: "#eead0e",
+    secondaryColor: "#082565", 
+    tertiaryColor: "#8b6508",
 
     formItemFontSize: 16,
 
-    fontSizeButtonColor: "#8CC63F",
-    fontSizeButtonFontColor: "#FFFFFF",
+    buttonColor: "#082565",
+    buttonFontColor: "#FFFFFF",
   },
 
   clientC: {
@@ -76,14 +76,14 @@ export const themes = {
 
     menuColor: "#000000",
 
-    primaryColor: "#40e9ff",
-    secondaryColor: "#B2F44A",
-    tertiaryColor: "#FF85E8",
+    primaryColor: "#8CC63F",
+    secondaryColor: "#000000",
+    tertiaryColor: "#8CC63F",
 
     formItemFontSize: 16,
 
-    fontSizeButtonColor: "#FF85E8",
-    fontSizeButtonFontColor: "#FFFFFF",
+    buttonColor: "#8CC63F",
+    buttonFontColor: "#FFFFFF",
   },
 } satisfies Record<string, AppTheme>;
 
