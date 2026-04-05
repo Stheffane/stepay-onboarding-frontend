@@ -1,12 +1,28 @@
-import React from 'react';
+import { Container, Typography, Box } from "@mui/material";
+import { useMockProposta } from "../hooks/useMockProposta";
+import { PropostaResumoCard } from "../components/PropostaResumoCard";
+import Footer from "../../../../shared/components/footer/Footer";
 
-const VisualizacaoSolicitacao: React.FC = () => {
+export default function VisualizacaoSolicitacaoPage() {
+  const proposta = useMockProposta();
+
   return (
-    <div>
-      <h1>Visualização da Solicitação</h1>
-      {/* Conteúdo da página */}
-    </div>
-  );
-};
+    <Container maxWidth="sm">
+      <Box pt={6} pb={4}>
+        <Typography variant="h4" mb={1}>
+          Sua Solicitação
+        </Typography>
+        <Typography variant="h6" color="text.secondary" mb={4}>
+          Acompanhe o resumo completo da sua proposta
+        </Typography>
 
-export default VisualizacaoSolicitacao;
+        <PropostaResumoCard proposta={proposta} showBankData />
+      </Box>
+
+      <Footer
+        rightButton="finalizar"
+        rightButtonLink="https://github.com/Stheffane/stepay-onboarding-frontend"
+      />
+    </Container>
+  );
+}
