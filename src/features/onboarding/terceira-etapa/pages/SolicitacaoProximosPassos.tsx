@@ -2,7 +2,7 @@ import { Container, Typography, Box } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Footer from "../../../../shared/components/footer/Footer";
 
-export default function SolicitacaoConcluidaPage() {
+export default function SolicitacaoProximosPassosPage() {
   return (
     <Container maxWidth="sm">
       <Box

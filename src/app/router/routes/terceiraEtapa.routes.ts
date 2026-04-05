@@ -13,8 +13,8 @@ export const terceiraEtapaRoutes: RouteObject[] = [
   },
 
   {
-    path: PATHS.TERCEIRA_ETAPA.SOLICITACAO_CONCLUIDA,
-    lazy: () => import("../../../features/onboarding/terceira-etapa/pages/SolicitacaoConcluida").then(m => ({ Component: m.default }))
+    path: PATHS.TERCEIRA_ETAPA.SOLICITACAO_PROXIMOS_PASSOS,
+    lazy: () => import("../../../features/onboarding/terceira-etapa/pages/SolicitacaoProximosPassos").then(m => ({ Component: m.default }))
   },
 
   {

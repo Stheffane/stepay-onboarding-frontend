@@ -86,7 +86,7 @@ export default function DocumentosPage() {
     }
 
     // TODO: enviar arquivos para API
-    navigate(PATHS.TERCEIRA_ETAPA.SOLICITACAO_CONCLUIDA);
+    navigate(PATHS.TERCEIRA_ETAPA.SOLICITACAO_PROXIMOS_PASSOS);
   };
 
   return (

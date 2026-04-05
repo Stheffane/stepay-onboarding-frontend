@@ -38,13 +38,13 @@ export const PATHS = {
   TERCEIRA_ETAPA: {
     DOCUMENTOS: "/documentos",
     CRIAR_SENHA: "/criar-senha",
-    SOLICITACAO_CONCLUIDA: "/solicitacao-concluida",
+    SOLICITACAO_PROXIMOS_PASSOS: "/solicitacao-proximos-passos",
     DESISTENCIA_PROPOSTA: "/desistencia-proposta",
     DESISTENCIA_SOCIO: "/desistencia-socio"
   },
 
   QUARTA_ETAPA: {
-    CONFIRMACAO: "/confirmacao",
+    EFETIVACAO: "/efetivacao",
     CONCLUSAO: "/conclusao-solicitacao",
     VISUALIZACAO: "/visualizacao-solicitacao",
     SOLICITACAO_CONCLUIDA: "/solicitacao-concluida",

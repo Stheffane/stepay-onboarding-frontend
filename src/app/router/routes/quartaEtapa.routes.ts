@@ -3,8 +3,8 @@ import { PATHS } from "../paths"
 
 export const quartaEtapaRoutes: RouteObject[] = [
   {
-    path: PATHS.QUARTA_ETAPA.CONFIRMACAO,
-    lazy: () => import("../../../features/onboarding/quarta-etapa/pages/Confirmacao").then(m => ({ Component: m.default }))
+    path: PATHS.QUARTA_ETAPA.EFETIVACAO,
+    lazy: () => import("../../../features/onboarding/quarta-etapa/pages/efetivacao").then(m => ({ Component: m.default }))
   },
 
   {
