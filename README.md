@@ -194,11 +194,11 @@ npm run build
 Para testar com um cliente específico (white-label):
 
 ```bash
+# via subdomínio
+http://clientB.localhost:5173
+
 # via querystring
 http://localhost:5173/?client=clientA
-
-# via dominio
-http://clientB.localhost:5173
 
 # via localStorage (console do browser)
 localStorage.setItem("app-theme", "clientC")
@@ -222,7 +222,7 @@ VITE_CLIENT=clientC npm run dev
 
 ---
 
-## Próximos Passos
+### Próximos Passos
 
 O projeto continuará evoluindo com foco em robustez e integração com serviços reais:
 
