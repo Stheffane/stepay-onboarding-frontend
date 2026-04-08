@@ -8,7 +8,7 @@ export const themes = {
     logoUrl:
       "https://www.iobsimuladortributario.com.br/skins/coreonline/imagens/logo-iob.svg",
     hideSubtitle: false,
-    faviconUrl: "/favicon.ico",
+    faviconUrl: "",
 
     menuColor: "#1B7AA6",
 
@@ -29,7 +29,7 @@ export const themes = {
     hideSubtitle: false,
 
     logoUrl: "/images/whitelabel-logos/comgas.svg",
-    faviconUrl: "https://www.comgas.com.br/wp-content/themes/comgas/favicon.ico",
+    faviconUrl: "",
 
     menuColor: "#000000",
 
@@ -50,8 +50,7 @@ export const themes = {
     hideSubtitle: false,
 
     logoUrl: "/images/whitelabel-logos/marketup.svg",
-    faviconUrl:
-      "https://marketup.com/wp-content/uploads/2020/12/cropped-mup-icon_Prancheta-1-32x32.png",
+    faviconUrl: "",
 
      menuColor: "#082565",
 

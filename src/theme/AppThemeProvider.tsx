@@ -4,6 +4,7 @@ import { useEffect, type ReactNode } from "react";
 import { themeResolver } from "./themeResolver";
 import { createMuiTheme } from "../styles/theme";
 import type { AppTheme } from "./theme.types";
+import { generateFavicon } from './generateFavicon';
 
 type Props = {
   children: ReactNode;
@@ -35,18 +36,17 @@ function applyThemeSideEffects(theme: AppTheme) {
     document.title = theme.title;
   }
 
-  if (theme.faviconUrl) {
-    const existingFavicon = document.querySelector<HTMLLinkElement>(
-      "link[rel='icon']"
-    );
+  const favicon = document.querySelector<HTMLLinkElement>("link[rel='icon']");
 
-    if (existingFavicon) {
-      existingFavicon.href = theme.faviconUrl;
-    } else {
-      const link = document.createElement("link");
-      link.rel = "icon";
-      link.href = theme.faviconUrl;
-      document.head.appendChild(link);
-    }
+  if (!favicon) {
+    favicon = document.createElement("link");
+    favicon.rel = "icon";
+    document.head.appendChild(favicon);
   }
+
+  const faviconUrl = theme.faviconUrl
+    ? theme.faviconUrl
+    : generateFavicon(theme.primaryColor);
+
+  favicon.setAttribute("href", faviconUrl);
 }
