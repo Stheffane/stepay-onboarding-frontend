@@ -1,6 +1,6 @@
 # Stepay — Onboarding de Empréstimo
 
-Refatoração completa de um onboarding financeiro real, migrando de uma arquitetura legada (React + Ant Design + Context API) para uma stack moderna, escalável e orientada a portfólio de nível pleno/sênior.
+Onboarding completo para solicitação de crédito empresarial, com múltiplas etapas, regras condicionais e fluxo real de uma fintech.
 
 ---
 
@@ -161,18 +161,6 @@ Cada etapa possui também caminhos de desistência e páginas de estado (pedido 
 
 O projeto está estruturado para integração com backend real sem refatoração de páginas. A lógica mockada fica isolada em hooks e constantes com comentários `// TODO`:
 
-```typescript
-// useMockMotorCredito.ts
-function getMockDesfecho(cnpj: string): MotorDesfecho {
-  const lastDigit = Number(cnpj.at(-1));
-  if (lastDigit === 0) return "90-dias";
-  if (lastDigit <= 3) return "aprovado";
-  if (lastDigit <= 6) return "analise-manual";
-  return "negado";
-}
-// TODO: substituir por POST /motor-credito
-```
-
 Para testar os cenários localmente:
 
 | Último dígito do CNPJ | Cenário |
@@ -207,10 +195,13 @@ Para testar com um cliente específico (white-label):
 
 ```bash
 # via querystring
-http://localhost:5173/?client=clientB
+http://localhost:5173/?client=clientA
+
+# via dominio
+http://clientB.localhost:5173
 
 # via localStorage (console do browser)
-localStorage.setItem("app-theme", "clientB")
+localStorage.setItem("app-theme", "clientC")
 location.reload()
 
 # via variável de ambiente
@@ -221,17 +212,22 @@ VITE_CLIENT=clientC npm run dev
 
 ## O que este projeto demonstra
 
-- Refatoração de aplicação legada para arquitetura moderna sem reescrever regras de negócio
-- Domínio de formulários complexos com validação tipada (RHF + Zod)
+- Fluxo completo de onboarding real
+- Arquitetura escalável baseada em domínio
+- Domínio de tipagem de formulários 
 - Gerenciamento de estado global com persistência criptografada
-- Separação clara entre lógica de negócio (hooks), estado (store) e apresentação (páginas)
-- Extração de componentes base para eliminar duplicação em fluxos similares
-- Preparação para integração com API real sem acoplamento nas páginas
-- Sistema multi-tenant com resolução dinâmica de tema
-- Fluxo com múltiplos caminhos condicionais, estados de erro e desistência
+- Separação clara entre regras de negócio (hooks), estado (store) e apresentação UI
+- Sistema multi-tenant com tema dinâmico
+- Preparado para integração com API (backend)
 
 ---
 
-## Contexto
+## Próximos Passos
 
-Este projeto é a refatoração de um onboarding real desenvolvido em produção para uma fintech. O código original utilizava React com Ant Design e Context API. A nova versão foi reconstruída do zero com foco em escalabilidade, manutenibilidade e alinhamento com padrões de mercado.
+O projeto continuará evoluindo com foco em robustez e integração com serviços reais:
+
+- Implementação de testes automatizados (unitários e de integração) com foco nas regras de negócio e fluxos críticos
+- Integração com backend real para substituição dos mocks de crédito, validação e proposta
+- Tratamento avançado de estados assíncronos (loading, erro, retry)
+- Observabilidade e logging para análise de comportamento do usuário
+- Melhorias de acessibilidade (a11y) e experiência do usuário
